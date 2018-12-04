@@ -1,2 +1,2 @@
 # webwealthme-wordpress-help
-Get Expert WordPress Help Directly From WP Admin 
+Get Expert WordPress Help (Advice, Custom Tutorials or Done For You) Directly From WP Admin
