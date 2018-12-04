@@ -1,31 +1,21 @@
 <?php
 /**
- * Plugin Name:       SCS YouTube Auto Poster
- * Description:       Auto Posts newest YouTube videos from the YouTube channel(s) of your choice.
- * Version:           2018.11.30
+ * Plugin Name:       WebWealth.me Wordpress Help
+ * Description:       Get Expert WordPress Help (Advice, Custom Tutorials or Done For You) Directly From WP Admin
+ * Version:           2018.12.04
  * Author:            Mike Mind
- * Author URI:        https://mikemind.me
- * Text Domain:       mikemind.me
+ * Author URI:        https://webwealth.me
+ * Text Domain:       webwealth.me
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * GitHub Plugin URI: https://github.com/
+ * GitHub Plugin URI: https://github.com/webwealthme/webwealthme-wordpress-help
  */
 
 //here we make the settings menu
-class scs_ytap_SettingsPage
+class wwme_wh_SettingsPage
 {
     public $scs_apikey,
-    $scs_channelId,
-    $scs_noofvids,
-    $scs_post_status,
-    $scs_post_category,
-    $scs_post_author,
-    $scs_post_date,
-    $scs_ytap_shortcodes,
-    $autogencaptionsswitch,
-    $scs_publishedAfter,
-    $scs_publishedBefore,
-        $scs_cronDay;
+    $scs_channelId;
     /**
      * Holds the values to be used in the fields callbacks
      */
@@ -139,89 +129,7 @@ class scs_ytap_SettingsPage
             'setting_section_scs_ytap'
         );
 
-        add_settings_field(
-            'channelId',
-            'Channel Id*',
-            array($this, 'channelId_callback'),
-            'scs_ytap',
-            'setting_section_scs_ytap'
-        );
 
-        add_settings_field(
-            'noofvids',
-            'Number of Videos*',
-            array($this, 'noofvids_callback'),
-            'scs_ytap',
-            'setting_section_scs_ytap'
-        );
-        add_settings_field(
-            'scs_ytap_publishedAfter',
-            'Published After Date',
-            array($this, 'publishedAfter_callback'),
-            'scs_ytap',
-            'setting_section_scs_ytap'
-        );
-        add_settings_field(
-            'scs_ytap_publishedBefore',
-            'Published Before Date',
-            array($this, 'publishedBefore_callback'),
-            'scs_ytap',
-            'setting_section_scs_ytap'
-        );
-        add_settings_section(
-            'setting_section_scs_ytap_wppost', // ID
-            'Post Settings', // Title
-            array($this, 'print_section_info_wppost'), // Callback
-            'scs_ytap' // Page
-        );
-        add_settings_field(
-            'post_status',
-            'Post Status',
-            array($this, 'post_status_callback'),
-            'scs_ytap',
-            'setting_section_scs_ytap_wppost'
-        );
-        add_settings_field(
-            'post_category',
-            'Post Category',
-            array($this, 'post_category_callback'),
-            'scs_ytap',
-            'setting_section_scs_ytap_wppost'
-        );
-        add_settings_field(
-            'post_author',
-            'Post Author',
-            array($this, 'post_author_callback'),
-            'scs_ytap',
-            'setting_section_scs_ytap_wppost'
-        );
-        add_settings_field(
-            'post_date',
-            'Post Date',
-            array($this, 'post_date_callback'),
-            'scs_ytap',
-            'setting_section_scs_ytap_wppost'
-        );
-        add_settings_field(
-            'scs_ytap_shortcodes',
-            'Customize Post Content',
-            array($this, 'scs_ytap_shortcodes_callback'),
-            'scs_ytap',
-            'setting_section_scs_ytap_wppost'
-        );
-        add_settings_section(
-            'setting_section_scs_ytap_cron', // ID
-            'Automatization/Cron Settings', // Title
-            array($this, 'print_section_info_cron'), // Callback
-            'scs_ytap' // Page
-        );
-        add_settings_field(
-            'scs_ytap_cronDay',
-            'Automatically check/post',
-            array($this, 'cronDay_callback'),
-            'scs_ytap',
-            'setting_section_scs_ytap_cron'
-        );
 
     }
 
@@ -238,42 +146,7 @@ class scs_ytap_SettingsPage
             $new_input['apikey'] = sanitize_text_field($input['apikey']);
         }
 
-        if (isset($input['channelId'])) {
-            $new_input['channelId'] = sanitize_text_field($input['channelId']);
-        }
-
-        if (isset($input['noofvids'])) {
-            $new_input['noofvids'] = sanitize_text_field($input['noofvids']);
-        }
-
-        if (isset($input['post_status'])) {
-            $new_input['post_status'] = sanitize_text_field($input['post_status']);
-        }
-        if (isset($input['post_category'])) {
-            $new_input['post_category'] = sanitize_text_field($input['post_category']);
-        }
-        if (isset($input['post_author'])) {
-            $new_input['post_author'] = sanitize_text_field($input['post_author']);
-        }
-        if (isset($input['post_date'])) {
-            $new_input['post_date'] = sanitize_text_field($input['post_date']);
-        }
-        if (isset($input['scs_ytap_shortcodes'])) {
-            //$new_input['scs_ytap_shortcodes'] = sanitize_text_field($input['scs_ytap_shortcodes']);
-            $new_input['scs_ytap_shortcodes'] = sanitize_text_field(htmlspecialchars($input['scs_ytap_shortcodes']));
-
-        }
-        if (isset($input['publishedAfter'])) {
-            $new_input['publishedAfter'] = sanitize_text_field($input['publishedAfter']);
-        }
-        if (isset($input['publishedBefore'])) {
-            $new_input['publishedBefore'] = sanitize_text_field($input['publishedBefore']);
-        }
-        if (isset($input['cronDay'])) {
-            $new_input['cronDay'] = sanitize_text_field($input['cronDay']);
-        }
-
-        return $new_input;
+          return $new_input;
     }
 
     /**
@@ -307,163 +180,7 @@ class scs_ytap_SettingsPage
         );
     }
 
-    public function channelId_callback()
-    {
-        if (isset($this->options['channelId'])) {
-            $this->scs_channelId = $this->options['channelId'];} else { $this->scs_channelId = "";}
-        printf(
-            '<input type="text" id="channelId" name="scs_ytap_options[channelId]" value="%s" required /> eg: <b title="https://www.youtube.com/channel/UC3f86MEyfT0DLaa6uxbFF9w">UC3f86MEyfT0DLaa6uxbFF9w</b>',
-            isset($this->options['channelId']) ? esc_attr($this->options['channelId']) : ''
-        );
-    }
-
-    public function noofvids_callback()
-    {
-        if (isset($this->options['noofvids'])) {
-            $this->scs_noofvids = $this->options['noofvids'];} else { $this->scs_noofvids = "";}
-
-        printf(
-            '<input type="number" id="noofvids" name="scs_ytap_options[noofvids]" min="1" max="50" value="%s" required /> <span title="Maximum 50 videos at the moment, use published before and after to get older videos">(1-50)</span>',
-            isset($this->options['noofvids']) ? esc_attr($this->options['noofvids']) : ''
-        );
-    }
-
-    public function post_status_callback()
-    {
-
-        if (isset($this->options['post_status'])) {
-            $this->scs_post_status = $this->options['post_status'];} else { $this->scs_post_status = "";}
-
-        $post_status_code = scs_ytap_post_status_array_loop($this->scs_post_status);
-
-        printf(
-            '<select id="post_status" name="scs_ytap_options[post_status]" value="%s">
-            ' . $post_status_code . '
-      </select>',
-            isset($this->options['post_status']) ? esc_attr($this->options['post_status']) : ''
-        );
-
-    }
-
-    public function post_category_callback()
-    {
-
-        if (isset($this->options['post_category'])) {
-            $this->scs_post_category = $this->options['post_category'];} else { $this->scs_post_category = "";}
-
-        $categories = get_categories(array('hide_empty' => 0));
-
-        $post_category_code = "";
-        foreach ($categories as $category) {
-            if ($this->scs_post_category == $category->term_id) {$selected = "selected='selected'";} else { $selected = "";}
-            $post_category_code .= '<option class="" value="' . $category->term_id . '" ' . $selected . '>' . $category->name . '</option>';
-        }
-
-        printf(
-            '<select id="post_category" name="scs_ytap_options[post_category]" value="%s">
-            ' . $post_category_code . '
-      </select>',
-            isset($this->options['post_category']) ? esc_attr($this->options['post_category']) : ''
-        );
-
-    }
-
-    public function post_author_callback()
-    {
-
-        if (isset($this->options['post_author'])) {
-            $this->scs_post_author = $this->options['post_author'];} else { $this->scs_post_author = "";}
-
-        $authors = get_users();
-
-        $post_author_code = "";
-        foreach ($authors as $author) {
-            if ($this->scs_post_author == $author->ID) {$selected = "selected='selected'";} else { $selected = "";}
-            $post_author_code .= '<option class="" value="' . $author->ID . '" ' . $selected . '>' . $author->user_nicename . '</option>';
-        }
-
-        printf(
-            '<select id="post_author" name="scs_ytap_options[post_author]" value="%s">
-            ' . $post_author_code . '
-      </select>',
-            isset($this->options['post_author']) ? esc_attr($this->options['post_author']) : ''
-        );
-
-    }
-
-    public function post_date_callback()
-    {
-
-        if (isset($this->options['post_date'])) {
-            $this->scs_post_date = $this->options['post_date'];} else { $this->scs_post_date = "";}
-
-        $post_date_code = scs_ytap_post_date_array_loop($this->scs_post_date);
-
-        printf(
-            '<select id="post_date" name="scs_ytap_options[post_date]" value="%s">
-            ' . $post_date_code . '
-      </select>',
-            isset($this->options['post_date']) ? esc_attr($this->options['post_date']) : ''
-        );
-
-    }
-
-    public function scs_ytap_shortcodes_callback()
-    {
-
-        //here we replace the shortcode values with the actual variables
-        if (isset($this->options['scs_ytap_shortcodes'])) {
-            $this->scs_ytap_shortcodes = $this->options['scs_ytap_shortcodes'];} else { $this->scs_ytap_shortcodes = "";}
-        if (strpos($this->scs_ytap_shortcodes, '[scs_ytap_video-captions]') == false) {
-            $this->autogencaptionsswitch = false;
-        } else { $this->autogencaptionsswitch = true;}
-
-        printf(
-            //<span title="Leave blank for default: [scs_ytap_video-embed] [scs_ytap_video-description] &lt;br&gt; &lt;h3&gt;Auto Generated Captions&lt;/h3&gt; [scs_ytap_video-captions]">
-            //Shortcodes: [scs_ytap_video-title] [scs_ytap_video-id] [scs_ytap_video-embed] [scs_ytap_video-description] [scs_ytap_video-captions] [scs_ytap_video-tags] [scs_ytap_video-thumbnail]</span><br>
-            '       </span><br>
-            <span><b>Shortcodes:</b></span><br>
-            <span title="YouTube Video Title (used as post name as well)">[scs_ytap_video-title] eg: <span class="scsytapeg">Frontend Developer vs Backend Developer - What Should You Learn? (Funducational)</span></span><br>
-            <span title="YouTube Video ID">[scs_ytap_video-id] eg: <span class="scsytapeg">yBA7lOu4W8Q</span></span><br>
-            <span title="YouTube Video with Wordpress Video Embed Code">[scs_ytap_video-embed] eg: <span class="scsytapeg">[embed]https://www.youtube.com/watch?v=yBA7lOu4W8Q[/embed]</span></span><br>
-            <span title="YouTube Video Description">[scs_ytap_video-description] eg: <span class="scsytapeg">Frontend Developer vs Backend Developer - The most funducational video out there!...</span></span><br>
-            <span title="YouTube Video Captions (works with automated generated captions too!)">[scs_ytap_video-captions] eg: <span class="scsytapeg">hi I\m Mike Mind and welcome to Mike Mind Acodemy...</span></span><br>
-            <span title="YouTube Video Tags/Keywords (used as post Tags as well)">[scs_ytap_video-tags] eg: <span class="scsytapeg">Frontend Developer vs Backend Developer,frontend web development,frontend,backend web development,backend,fullstack,javascript,html,css,node,node.js,...</span></span><br>
-            <span title="YouTube Video Thumbnail (used as fetured image as well if theme supports)">[scs_ytap_video-thumbnail] eg: <span class="scsytapeg">https://i.ytimg.com/vi/yBA7lOu4W8Q/hqdefault.jpg</span></span><br>
-            <i><span><b>TIP:</b> You can use HTML tags here, for eg use &lt;br&gt; for line break, &lt;hr&gt; for horizontal line etc</span></i><br>
-            <i><span><b>Example:</b> [scs_ytap_video-embed] [scs_ytap_video-description] &lt;br&gt; &lt;h3&gt;Auto Generated Captions&lt;/h3&gt; [scs_ytap_video-captions]</span></i><br>
-
-
-
-            <textarea rows="4" cols="50" id="scs_ytap_shortcodes" name="scs_ytap_options[scs_ytap_shortcodes]" value="" >%s</textarea>
-            <br> Note: [scs_ytap_video-captions] might not always work due to multiple reasons and are in no way proof read.',
-            isset($this->options['scs_ytap_shortcodes']) ? esc_attr($this->options['scs_ytap_shortcodes']) : "[scs_ytap_video-embed] [scs_ytap_video-description] &lt;br&gt; &lt;h3&gt;Auto Generated Captions&lt;/h3&gt; [scs_ytap_video-captions]"
-        );
-
-    }
-
-    public function publishedAfter_callback()
-    {
-        if (isset($this->options['publishedAfter'])) {
-            $this->scs_publishedAfter = $this->options['publishedAfter'];} else { $this->scs_publishedAfter = "";}
-
-        printf(
-            '<input type="date" id="publishedAfter" class="scsytapdate" name="scs_ytap_options[publishedAfter]" value="%s" /> <span title="If facing issues, use Published Before Date as well">(Optional)</span>',
-            isset($this->options['publishedAfter']) ? esc_attr($this->options['publishedAfter']) : ''
-        );
-    }
-
-    public function publishedBefore_callback()
-    {
-        if (isset($this->options['publishedBefore'])) {
-            $this->scs_publishedBefore = $this->options['publishedBefore'];} else { $this->scs_publishedBefore = "";}
-
-        printf(
-            '<input type="date" id="publishedBefore" class="scsytapdate" name="scs_ytap_options[publishedBefore]" value="%s" /> <span title="If facing issues, use Published After Date as well">(Optional)</span>',
-            isset($this->options['publishedBefore']) ? esc_attr($this->options['publishedBefore']) : ''
-        );
-
-    }
+    
 
     public function cronDay_callback()
     {
@@ -506,59 +223,12 @@ class scs_ytap_SettingsPage
     public function scs_ytap_main()
     {
 
-        $scs_ytap_output_result = "";
-        $allwpytids = scs_ytap_getYtIdsFromPosts();
-
-        $data = scs_ytap_getYtVideoListData($this->scs_apikey, $this->scs_channelId, $this->scs_noofvids, $this->scs_publishedAfter, $this->scs_publishedBefore);
-
-        for ($j = 0; $j < $this->scs_noofvids; $j++) {
-
-            $currvidid = $data['items'][$j]['id']['videoId'];
-            $currvidtitle = $data['items'][$j]['snippet']['title'];
-            $scs_yt_post_date = $data['items'][$j]['snippet']['publishedAt'];
-            $vidno = $j + 1;
-
-            //first we check if post was already created in wordpress by video id
-            if (!in_array($currvidid, $allwpytids)) {
-                $scs_ytap_output_result .= "<div class='scsposted'><b>Video $vidno:</b> $currvidtitle <i>[$currvidid]</i> posted!</div>";
-
-                $viddata = scs_ytap_getYtVideoIndividualData($this->scs_apikey, $currvidid);
-
-                //echo "ID: " . $currvidid . "<br>";
-                $currviddes = $viddata['items'][0]['snippet']['description'];
-                //fix bug if video doesn't have description
-                if (!isset($currviddes)) {$currviddes = "";}
-                //echo "DESCRIPTION: " . $currviddes . "<br>";
-                $curthumb = $viddata['items'][0]['snippet']['thumbnails']['high']['url'];
-                //echo "THUMBNAIL: " . $curthumb . "<br>";
-                //todo category id and matches category from site
-                $currvidcatid = $viddata['items'][0]['snippet']['categoryId'];
-                //echo "CATEGORY ID: " . $currvidcatid . "<br>";
-                //fix bug if video doesn't have tags
-                //if((isset($viddata['items'][0]['snippet']['tags']))||($viddata['items'][0]['snippet']['tags'] != false))
-                if (isset($viddata['items'][0]['snippet']['tags'])) {$currvidtags = $viddata['items'][0]['snippet']['tags'];} else { $currvidtags = ["yt", "youtube"];}
-                //echo "TAGS: " . $currvidtags . "<br>";
-
-                for ($i = 0; $i < count($currvidtags); $i++) {
-                    // echo $currvidtags[$i] . ", ";
-                }
-                //then we get the autogenerated captions
-                if ($this->autogencaptionsswitch) {$autogencaptions = scs_ytap_getClosedCaptionsForVideo($currvidid);} else { $autogencaptions = "";}
-
-                scs_ytap_createPost($currvidtitle, $this->scs_post_status, $currvidid, $currviddes, $autogencaptions, $currvidtags, $curthumb, $this->scs_ytap_shortcodes, $this->scs_post_category, $this->scs_post_author, $this->scs_post_date, $scs_yt_post_date);
-
-            } else { $scs_ytap_output_result .= "<div class='scsalreadyposted'><b>Video $vidno:</b> $currvidtitle <i>[$currvidid]</i> already posted!</div>";}
-
-        }
-
-        echo "<div class='scsemulatetextarea'><b>Output log:</b><br>" . $scs_ytap_output_result . "</div>";
-
     }
 
 }
 
 //if (is_admin()) {
-$my_settings_page = new scs_ytap_SettingsPage();
+$wwme_wh_settings_page = new wwme_wh_SettingsPage();
 //}
 
 //set a cron job
