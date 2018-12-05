@@ -15,7 +15,7 @@
 class wwme_wh_SettingsPage
 {
     public $wwme_wh_variable;
-   
+
     /**
      * Start up
      */
@@ -31,17 +31,16 @@ class wwme_wh_SettingsPage
     public function add_plugin_page()
     {
 
-    add_menu_page( 'WebWealth.me WordPress Help', 'WebWealth.me WordPress Help', 'manage_options', 'wwme_wh', array($this, 'create_admin_page'),'../wp-content/plugins/webwealthme-wordpress-help/logo.png');
+        add_menu_page('WebWealth.me WordPress Help', 'WebWealth.me WordPress Help', 'manage_options', 'wwme_wh', array($this, 'create_admin_page'), '../wp-content/plugins/webwealthme-wordpress-help/logo.png');
 
-
-       /* // This page will be under "Settings"
-        add_options_page(
-            'WebWealth.me Wordpress Help',
-            'WebWealth.me Wordpress Help',
-            'manage_options',
-            'wwme_wh',
-            array($this, 'create_admin_page')            
-        );*/
+        /* // This page will be under "Settings"
+    add_options_page(
+    'WebWealth.me Wordpress Help',
+    'WebWealth.me Wordpress Help',
+    'manage_options',
+    'wwme_wh',
+    array($this, 'create_admin_page')
+    );*/
     }
 
     /**
@@ -51,13 +50,12 @@ class wwme_wh_SettingsPage
     {
         // Set class property
         require_once dirname(__FILE__) . "/functions.php";
-        
+
         wwme_wh_outputcss();
         ?>
 
         <div id="wwme_wh_maindiv">
-        -> Loved our service? Leave a tip :)
-
+<div id="wwme_wh_news_info">Loved our service? <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FAUCSBEY7S2YQ" target="_blank">Leave a tip</a> ☺</div>
 
 
 
@@ -74,176 +72,171 @@ class wwme_wh_SettingsPage
 <label for="wwme_wh_contact">CONTACT</label>
 
 <section id="wwme_wh_help_content">
-We currently offer the following services:
-Note 1: For best experience please describe your request with as much detail as possible and attach files.
-Note 2: To get a faster quote and speed up work delivery please send all the info you have related to the project including attached media (if more than 1 file, please zip them and attach all) & send temporary wp admin access (please note that some projects require temporary ftp access as well, so it would be great if this is provided as well)
+<h1>We currently offer the following services:</h1>
+<p><i><b>Note 1:</b> For best experience please describe your request with as much detail as possible and also attach project files if you have, such as documents, pdfs, images, screenshots, etc (please zip archive them to attach all).</br>
+<b>Note 2:</b> To get a faster quote and speed up work delivery please send temporary wp admin access (some projects require temporary ftp access as well, so it would be great if this is provided as well).</i></p>
 
-<div class="accordion">
+<div class="wwme_wh_accordion">
 
 <!-- Panel 1 -->
 <div>
-  <input type="radio" name="panel" id="panel-1">
-  <label for="panel-1">Panel 1</label>
+  <input type="radio" name="wwme_wh_panel" id="wwme_wh_panel_free-consultation">
+  <label for="wwme_wh_panel_free-consultation">FREE CONSULTATION</label>
   <div class="accordion__content accordion__content--small">
-    <h2 class="accordion__header">Header</h2>
-    <p class="accordion__body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto possimus at a cum saepe molestias modi illo facere ducimus voluptatibus praesentium deleniti fugiat ab error quia sit perspiciatis velit necessitatibus.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet.</p>
+  <h2>FREE CONSULTATION ► Get FREE WordPress related advice and recommendations from us!</h2>
+<p><b>What do you try to accomplish?</b></p>
+<form action="">
+<?php wwme_wh_help_form("GET MY FREE CONSULTATION");?>
   </div>
 </div>
 
 <!-- Panel 2 -->
 <div>
-  <input type="radio" name="panel" id="panel-2">
-  <label for="panel-2">Panel 2</label>
-  <div class="accordion__content accordion__content--med">
-    <h2 class="accordion__header">Header</h2>
-    <p class="accordion__body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto possimus at a cum saepe molestias modi illo facere ducimus voluptatibus praesentium deleniti fugiat ab error quia sit perspiciatis velit necessitatibus.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente eligendi nulla illo culpa ab in at adipisci eveniet id itaque maxime soluta recusandae doloribus laboriosam dignissimos est aut cupiditate delectus.</p>
+  <input type="radio" name="wwme_wh_panel" id="wwme_wh_panel_step-by-step">
+  <label for="wwme_wh_panel_step-by-step">STEP BY STEP INSTRUCTIONS</label>
+  <div class="accordion__content accordion__content--small">
+  <h2>STEP BY STEP INSTRUCTIONS ► Get a detailed step by step instruction manual or video for your WP needs!</h2>
+  <p><b>What do you try to accomplish?</b></p>
+  <form action="">
+checkboxes Manual (TEXT/IMAGES)  VIDEO
+<?php wwme_wh_help_form("GET MY STEP BY STEP INSTRUCTIONS QUOTE");?>
   </div>
 </div>
 
 <!-- Panel 3 -->
 <div>
-  <input type="radio" name="panel" id="panel-3">
-  <label for="panel-3">Panel 3</label>
+  <input type="radio" name="wwme_wh_panel" id="wwme_wh_panel_new-site">
+  <label for="wwme_wh_panel_new-site">NEW WP SITE</label>
   <div class="accordion__content accordion__content--small">
-    <h2 class="accordion__header">Header</h2>
-    <p class="accordion__body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto possimus at a cum saepe molestias modi illo facere ducimus voluptatibus praesentium deleniti fugiat ab error quia sit perspiciatis velit necessitatibus.Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+  <h2>NEW WP SITE ► Get A Professional Wordpress Site that converts users into leads/buyers!</h2>
+  <p><b>What we offer?</b></p>
+  <p>✓ Mobile Responsive Themes<br>
+✓ Forms (Contact, Quote, Schedule, Request, Order...)<br>
+✓ Animated Slider / Slideshow<br>
+✓ Ecommerce<br>
+✓ Social Sharing (Facebook, Twitter, G+)<br>
+✓ Youtube/Vimeo Video Embedding<br>
+✓ Google Analytics/Adsense/Maps Integration (details must be provided)<br>
+✓ Site Email Addresses<br>
+✓ Basic training on how to use your website<br>
+✓ Site will be delivered in zip format as well<br>
+✓ Anything else you need...<br>
+<br>
+<b>Notes:</b><br>
+⚀ Own created logo, stock images and dummy text will be used if you don’t have them yet.<br>
+⚁ No gambling, adult or illegal sites.</p>
+
+<form action="">
+<?php wwme_wh_help_form("GET MY NEW WP SITE QUOTE");?>
   </div>
 </div>
+
 
 <!-- Panel 4 -->
 <div>
-  <input type="radio" name="panel" id="panel-4">
-  <label for="panel-4">Panel 4</label>
-  <div class="accordion__content accordion__content--large">
-    <h2 class="accordion__header">Header</h2>
-    <p class="accordion__body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto possimus at a cum saepe molestias modi illo facere ducimus voluptatibus praesentium deleniti fugiat ab error quia sit perspiciatis velit necessitatibus.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda odio provident ullam culpa rem tempora voluptatem inventore facere adipisci doloribus dolorum ad maxime itaque quasi animi aliquid voluptates rerum expedita? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui culpa amet neque nostrum cumque eaque corrupti ad accusantium? Consectetur reiciendis ad earum aspernatur at quibusdam cupiditate rerum ipsam consequatur suscipit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab rem explicabo exercitationem unde harum? Iste nobis quae animi illum laborum incidunt hic illo ad repellat repudiandae et alias facere magni.</p>
+  <input type="radio" name="wwme_wh_panel" id="wwme_wh_panel_speed">
+  <label for="wwme_wh_panel_speed">SPEED OPTIMIZATION</label>
+  <div class="accordion__content accordion__content--small">
+  <h2>SPEED OPTIMIZATION ► Improve Speed and Performance for better user experience and increased Google rankings!</h2>
+  <p><b>Included:</b></p>
+  <p>✓ Faster Loading Time<br>
+✓ Image Optimization<br>
+✓ Enabling gZip Compression<br>
+✓ Caching Pages To Serve Static Content<br>
+✓ Optimizing Homepage<br>
+✓ Optimizing WP Database<br>
+✓ Efficient Browser Caching<br>
+✓ Minification<br>
+✓ Before & After Report</p>
+
+<form action="">
+<?php wwme_wh_help_form("GET MY SPEED OPTIMIZATION QUOTE");?>
   </div>
 </div>
 
-</div><!-- .accordion -->
+<!-- Panel 5 -->
+<div>
+  <input type="radio" name="wwme_wh_panel" id="wwme_wh_panel_error-fixes">
+  <label for="wwme_wh_panel_error-fixes">ERROR FIXES</label>
+  <div class="accordion__content accordion__content--small">
+  <h2>ERROR FIXES ► Fix Fast Any Wordpress Error, Issue Or Problem!</h2>
+  <p><b>Fix Specific Errors:</b><br>
+✓ Warning: Cannot modify header information – headers already sent by<br>
+✓ WordPress White Screen of Death / Fatal error<br>
+✓ Internal Server Error<br>
+✓ HTTP Error 403 – Forbidden<br>
+✓ You are not authorized to view this page (403 error)<br>
+<br>
+<b>Fix Design/Theme Errors:</b><br>
+✓ Header/footer issues<br>
+✓ Navigation problems<br>
+✓ HTML/CSS Layout Issues<br>
+✓ Responsive Issues / Mobile Issues<br>
+✓ Font/layout color(s)<br>
+✓ Broken images placeholders<br>
+<br>
+<b>Fix General Errors:</b><br>
+✓ WordPress Errors<br>
+✓ Any Coding Bugs (PHP, JS)<br>
+✓ Any Plugin Issues</p>
 
+<form action="">
+<?php wwme_wh_help_form("GET MY ERROR FIXES QUOTE");?>
+  </div>
+</div>
 
-DROPDOWNS:
-----FREE----
-**************************************************************************
-FREE CONSULTATION ► Get WordPress related advice and recommendations from us!
-What do you try to accomplish?
-<?php wwme_wh_help_form("#555555","Get My Free Consultation"); ?>
+<!-- Panel 6 -->
+<div>
+  <input type="radio" name="wwme_wh_panel" id="wwme_wh_panel_security">
+  <label for="wwme_wh_panel_security">SECURITY</label>
+  <div class="accordion__content accordion__content--small">
+  <h2>SECURITY ► Remove any WordPress Malware, Hack, Virus or Malicious Code & Harden Security!</h2>
+  <p><b>What we offer?</b></p>
+  <p>✓ Wordpress Malware Cleanup<br>
+✓ Backdoor, phishing scripts, SEO spam removal<br>
+✓ Iframe hacks, JavaScript hacks, base64 hacks...<br>
+✓ Upgrade Existing Plugins & WP Core<br>
+✓ Install & Config WP Security Plugins<br>
+✓ Protect your site from hackers<br>
+✓ Make site Google friendly<br>
+✓ Regain Google ranking</p>
 
+<form action="">
+<?php wwme_wh_help_form("GET MY SECURITY QUOTE");?>
+  </div>
+</div>
 
-**************************************************************************
+<!-- Panel 7 -->
+<div>
+  <input type="radio" name="wwme_wh_panel" id="wwme_wh_panel_transfer">
+  <label for="wwme_wh_panel_transfer">WP TRANSFER</label>
+  <div class="accordion__content accordion__content--small">
+  <h2>TRANSFER ► Move Wordpress Site To New Host Or Domain!</h2>
+  <p><b>What we offer?</b></p>
+  <p>✓ Move from subdomain to root<br>
+✓ Move from root to subdomain<br>
+✓ Move from one domain to another<br>
+✓ Move from one host to another<br>
+<br>
+<b>Notes:</b><br>
+✓ No missing files or content<br>
+✓ No Size Restrictions<br>
+✓ Minimum information required</p>
 
-----PAID----
-**************************************************************************
-STEP BY STEP INSTRUCTIONS ► Get a detailed step by step instruction manual or video for your WP needs!
-What do you try to accomplish?
-checkboxes Manual (TEXT/IMAGES)  VIDEO
-<?php wwme_wh_help_form("#555555","STEP BY STEP INSTRUCTIONS Quote"); ?>
+<form action="">
+<?php wwme_wh_help_form("GET MY WP TRANSFER QUOTE");?>
+  </div>
+</div>
 
-**************************************************************************
+<!-- Panel 8 -->
+<div>
+  <input type="radio" name="wwme_wh_panel" id="wwme_wh_panel_other">
+  <label for="wwme_wh_panel_other">OTHER - DO IT FOR ME</label>
+  <div class="accordion__content accordion__content--small">
+  <h2>OTHER - DO IT FOR ME ► Anything you need to get done just let us know!</h2>
+<p><b>Choose the one that fits best:</b></p>
 
-**************************************************************************
-NEW WP SITE ► Get A Professional Wordpress Site that converts users into leads/buyers!
-What we offer:
-✓ Mobile Responsive Themes
-✓ Forms (Contact, Quote, Schedule, Request, Order...)
-✓ Animated Slider / Slideshow
-✓ Ecommerce
-✓ Social Sharing (Facebook, Twitter, G+)
-✓ Youtube/Vimeo Video Embedding
-✓ Google Analytics/Adsense/Maps Integration (details must be provided)
-✓ Site Email Addresses
-✓ Basic training on how to use your website
-✓ Site will be delivered in zip format as well
-✓ Anything else you need...
-
-Notes:
-⚀ Own created logo, stock images and dummy text will be used if you don’t have them yet.
-⚁ No gambling, adult or illegal sites.
-
-<?php wwme_wh_help_form("#555555","NEW WP SITE Quote"); ?>
-**************************************************************************
-
-**************************************************************************
-SPEED OPTIMIZATION ► Improve Speed and Performance for better user experience and increased Google rankings!
-Included:
-✓ Faster Loading Time
-✓ Image Optimization
-✓ Enabling gZip Compression
-✓ Caching Pages To Serve Static Content
-✓ Optimizing Homepage
-✓ Optimizing WP Database
-✓ Efficient Browser Caching
-✓ Minification
-✓ Before & After Report
-
-<?php wwme_wh_help_form("#555555","SPEED OPTIMIZATION Quote"); ?>
-
-**************************************************************************
-
-**************************************************************************
-ERROR FIXES ► Fix Fast Any Wordpress Error, Issue Or Problem!
-What we fix?
-Fix Specific Errors:
-✓ Warning: Cannot modify header information – headers already sent by
-✓ WordPress White Screen of Death / Fatal error
-✓ Internal Server Error
-✓ HTTP Error 403 – Forbidden
-✓ You are not authorized to view this page (403 error)
-
-Fix Design/Theme Errors:
-✓ Header/footer issues
-✓ Navigation problems
-✓ HTML/CSS Layout Issues
-✓ Responsive Issues / Mobile Issues
-✓ Font/layout color(s)
-✓ Broken images placeholders.
-
-Fix General Errors:
-✓ WordPress Errors
-✓ Any Coding Bugs (PHP, JS)
-✓ Any Plugin Issues
-
-<?php wwme_wh_help_form("#555555","ERROR FIXES Quote"); ?>
-
-**************************************************************************
-
-**************************************************************************
-SECURITY ► Remove any WordPress Malware, Hack, Virus or Malicious Code & Harden Security!
-What we offer?
-✓ Wordpress Malware Cleanup
-✓ Backdoor, phishing scripts, SEO spam removal
-✓ Iframe hacks, JavaScript hacks, base64 hacks...
-✓ Upgrade Existing Plugins & WP Core
-✓ Install & Config WP Security Plugins
-✓ Protect your site from hackers
-✓ Make site Google friendly
-✓ Regain Google ranking
-
-<?php wwme_wh_help_form("#555555","SECURITY Quote"); ?>
-
-**************************************************************************
-
-**************************************************************************
-TRANSFER ► Move Wordpress Site To New Host Or Domain!
-What we offer:
-✓ Move from subdomain to root
-✓ Move from root to subdomain
-✓ Move from one domain to another
-✓ Move from one host to another
-Benefits:
-✓ No missing files or content
-✓ No Size Restrictions
-✓ Minimum information required
-
-<?php wwme_wh_help_form("#555555","TRANSFER Quote"); ?>
-
-**************************************************************************
-
-**************************************************************************
-OTHER - DO IT FOR ME ► Anything you need to get done just let us know!
-
-Choose the one that fits best:
+<form action="">
 ( ) Current Site Edits
 ( ) New Functionality
 ( ) PSD to WP Theme
@@ -261,76 +254,86 @@ Choose the one that fits best:
 ( ) Backup Your Site
 ( ) Any other Custom Work
 
-<?php wwme_wh_help_form("#555555","My OTHER - DO IT FOR ME Quote"); ?>
+<?php wwme_wh_help_form("GET MY DO IT FOR ME QUOTE");?>
+  </div>
+</div>
 
-**************************************************************************
+<!-- Panel 8 -->
+<div>
+  <input type="radio" name="wwme_wh_panel" id="wwme_wh_panel_maintenance">
+  <label for="wwme_wh_panel_maintenance">ONGOING MAINTENANCE</label>
+  <div class="accordion__content accordion__content--small">
+  <h2>ONGOING MAINTENANCE ► Keep your site running smoothly and up to date!</h2>
+  <p><b>Included:</b></p>
+  <p>✓ WP Core Updates<br>
+✓ Plugins and Theme Updates<br>
+✓ Site Backups<br>
+✓ Security Check<br>
+✓ Speed Check<br>
+✓ Integrity Check<br>
+✓ Small WP Requests<br>
+<br>
+<b>IMPORTANT:</b> Website link, WP ADMIN + CPANEL access is needed, so please provide before ordering</p>
 
-**************************************************************************
-ONGOING MAINTENANCE ($59) ► Keep your site running smoothly and up to date!
-Included:
-✓ WP Core Updates
-✓ Plugins and Theme Updates
-✓ Site Backups
-✓ Security Check
-✓ Speed Check
-✓ Integrity Check
-✓ Small WP Requests
+<form action="">
+<?php wwme_wh_help_form("Get My Free Consultation");?>
+<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L7G7FDS3BU2VN" target="_blank">SUBSCRIBE FOR JUST $99 $59</a>
+  </div>
+</div>
 
-IMPORTANT: Website link, WP ADMIN + CPANEL access is needed, so please provide before ordering
-<?php wwme_wh_help_form("#555555","Get My Free Consultation was $99"); ?>
+</div><!-- .wwme_wh_accordion -->
 
 
-**************************************************************************
 </section>
 
 <section id="wwme_wh_whyus_content">
-Why Choose WebWealth.me Services?
+<h1>Why Choose WebWealth.me Services?</h1>
 
-☆ Reliable & High Rated WordPress Designers/Developers
-☆ Great Communication, Fast Response & Work Delivery
-☆ Competitive Prices
-☆ 10+ Years Wordpress Experience
-☕ Over 3000 Happy Customers Served
-
-❮❯ WP, HTML, CSS, PHP, JavaScript Experts
-✎ Photoshop, Illustrator, Premiere Top Designers
-
-Bonus: Free Expert Tips to Improve Website on any FREE or Paid service.
-100% Satisfied or 7 Day Money Back Guarantee ☺
+<p>☆ Reliable & High Rated WordPress Designers/Developers<br>
+☆ Great Communication, Fast Response & Work Delivery<br>
+☆ Competitive Prices<br>
+☆ 10+ Years Wordpress Experience<br>
+☆ Over 3000 Happy Customers Served<br>
+<br>
+❮❯ WP, HTML, CSS, PHP, JavaScript Experts<br>
+✎ Photoshop, Illustrator, Premiere Top Designers<br>
+<br>
+Bonus: Free Expert Tips to Improve Website on any FREE or Paid service.<br>
+100% Satisfied or 7 Day Money Back Guarantee ☺<p>
 </section>
 
 <section id="wwme_wh_faq_content">
-Q. What do you offer?
-A. Custom Work on the following Wordpress topics: Errors, Theme Issues, Coding Bugs, Plugin Issue, Create or Edit Website, Remove Hack & Harden Security, Convert Websites to WordPress, Move WP to Other Host, Make your Site Faster, Update WP, Theme & Plugins, Backup and a lot more.
+<p><b>Q: What do you offer?</b><br>
+<b>A:</b> Custom Work on the following Wordpress topics: Errors, Theme Issues, Coding Bugs, Plugin Issue, Create or Edit Website, Remove Hack & Harden Security, Convert Websites to WordPress, Move WP to Other Host, Make your Site Faster, Update WP, Theme & Plugins, Backup and a lot more.</p>
 
-Q. How does it work?
-A. First, Thank you for choosing our services :) The process is very simple: 
-1. You: Send a request to us with your Wordpress needs 
-2. Us: Communicate how and by when will the fixes/changes be done and the quote (if paid service)
-3. You: Agree (pay first quote % if applicable) and send us the required logins to get started 
-4. Us: Finish the work + send report
-5. You: Love it and pay final quote
-6. Recommended: You: Get the ONGOING MAINTENANCE to Keep your site running smoothly and up to date!
-Note: Additional information will be requested if needed, to provide you the best possible service.
+<p><b>Q: How does it work?</b><br>
+<b>A:</b> First, Thank you for choosing our services :) The process is very simple:<br>
+1. You: Send a request to us with your Wordpress needs<br>
+2. Us: Communicate how and by when will the fixes/changes be done and the quote (if paid service)<br>
+3. You: Agree (pay first quote % if applicable) and send us the required logins to get started<br>
+4. Us: Finish the work + send report<br>
+5. You: Love it and pay final quote<br>
+6. Recommended: You: Get the ONGOING MAINTENANCE to Keep your site running smoothly and up to date!<br>
+Note: Additional information will be requested if needed, to provide you the best possible service.</p>
 
-Q. How much time do I get included help and revisions?
-A. After the project is successfully done and payment was made, we offer free help and revisions for that specific task/project (within reason) for 7 days. After 1 week, other help or revisions must be paid for.
+<p><b>Q: How much time do I get included help and revisions? </b><br>
+<b>A:</b> After the project is successfully done and payment was made, we offer free help and revisions for that specific task/project (within reason) for 7 days. After 1 week, other help or revisions must be paid for.</p>
 
-Q. How are payments made?
-A. Securely with Paypal.
+<p><b>Q: How are payments made? </b><br>
+<b>A:</b> Securely with Paypal.</p>
 
-Q. How are refunds handled?
-A. 7 Days money back Guarantee. If for any reason you are not satisfied with the service provided, you get your money back!
+<p><b>Q: How are refunds handled?</b><br>
+<b>A:</b> 7 Days money back Guarantee. If for any reason you are not satisfied with the service provided, you get your money back!</p>
 
-Q. How can I get a faster quote and speed up work delivery?
-A. Send all the info you have related to the project including attached media (the more specific the better) & Send temporary wp admin access (please note that some projects require temporary ftp access as well, so it would be great if this is provided as well)
+<p><b>Q: How can I get a faster quote and speed up work delivery?</b><br>
+<b>A:</b> Send all the info you have related to the project including attached media (the more specific the better) & Send temporary wp admin access (please note that some projects require temporary ftp access as well, so it would be great if this is provided as well)</p>
 
 </section>
 
 <section id="wwme_wh_contact_content">
 
 Contact WebWealth.me for any feedback/request/question/etc at admin@webwealth.me or using the form below:
-    <?php wwme_wh_help_form("#555555","Contact"); ?>
+    <?php wwme_wh_help_form("Contact");?>
 
 
 
@@ -343,7 +346,6 @@ Contact WebWealth.me for any feedback/request/question/etc at admin@webwealth.me
 
         <?php
 
-
         //wwme_wh_outputjs();
 
         if (isset($_POST['action'])) {
@@ -352,30 +354,30 @@ Contact WebWealth.me for any feedback/request/question/etc at admin@webwealth.me
         }
 
     }
-  
 
 }
 
 if (is_admin()) {
-$wwme_wh_settings_page = new wwme_wh_SettingsPage();
+    $wwme_wh_settings_page = new wwme_wh_SettingsPage();
 }
 
 //add button to admin toolbar
-function wwme_wh_admin_toolbar_button($wp_admin_bar){
+function wwme_wh_admin_toolbar_button($wp_admin_bar)
+{
     $args = array(
-    'id' => 'wwme_wh_admin_toolbar_button',
-    'title' => 'GET HELP',
-    'href' => '/wp-admin/admin.php?page=wwme_wh',
-    'meta' => array(
-    'class' => 'custom-button-class'
-    )
+        'id' => 'wwme_wh_admin_toolbar_button',
+        'title' => 'GET HELP',
+        'href' => '/wp-admin/admin.php?page=wwme_wh',
+        'meta' => array(
+            'class' => 'custom-button-class',
+        ),
     );
     $wp_admin_bar->add_node($args);
-echo "
+    echo "
 <style>
 #wp-admin-bar-wwme_wh_admin_toolbar_button {background-color:#F26722!important;}
 #wp-admin-bar-wwme_wh_admin_toolbar_button > a {font-weight: bold!important;font-size:150%!important}
-#wp-admin-bar-wwme_wh_admin_toolbar_button > a::before {  
+#wp-admin-bar-wwme_wh_admin_toolbar_button > a::before {
     content: url(../wp-content/plugins/webwealthme-wordpress-help/logo.png);
     transform: scale(.8);
     height: 20px;
@@ -388,7 +390,6 @@ echo "
 </style>
 ";
 
+}
 
-    }
-    
-    add_action('admin_bar_menu', 'wwme_wh_admin_toolbar_button', 31);
+add_action('admin_bar_menu', 'wwme_wh_admin_toolbar_button', 31);
