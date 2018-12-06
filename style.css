@@ -1,39 +1,32 @@
 *,
 *:before,
 *:after {
-  box-sizing: border-box!important;
+  box-sizing: border-box !important;
 }
 
-.tip{background-color:#F26722}
+#wwme_wh_maindiv {
+  z-index: 999;
+  position: relative;
+}
 
-
+/*.tip{background-color:#F26722}*/
 
 /*TABS CSS  */
 
-/*
-p:not(:last-child) {
-  margin: 0 0 20px;
-}
-
-main {
-  max-width: 800px;
-  padding: 40px;
-  border: 1px solid rgba(0,0,0,.2);
-  background: #fff;
-  box-shadow: 0 1px 3px rgba(0,0,0,.1);
-}
-*/
 section {
   display: none;
   padding: 20px 0 0;
   border-top: 1px solid #abc;
 }
 
-#wwme_wh_help, #wwme_wh_whyus, #wwme_wh_faq, #wwme_wh_contact {
+#wwme_wh_help,
+#wwme_wh_whyus,
+#wwme_wh_faq,
+#wwme_wh_contact {
   display: none;
 }
 
-#wwme_wh_maindiv > label {
+#wwme_wh_maindiv>label {
   display: inline-block;
   margin: 0 0 -1px;
   padding: 15px 25px;
@@ -43,7 +36,7 @@ section {
   border: 1px solid transparent;
 }
 
-#wwme_wh_maindiv > label:before {
+#wwme_wh_maindiv>label:before {
   font-family: fontawesome;
   font-weight: normal;
   margin-right: 10px;
@@ -51,12 +44,15 @@ section {
 
 
 
-#wwme_wh_maindiv > label:hover {
+#wwme_wh_maindiv>label:hover {
   color: #789;
   cursor: pointer;
 }
 
-#wwme_wh_help:checked + label, #wwme_wh_whyus:checked + label, #wwme_wh_faq:checked + label, #wwme_wh_contact:checked + label {
+#wwme_wh_help:checked+label,
+#wwme_wh_whyus:checked+label,
+#wwme_wh_faq:checked+label,
+#wwme_wh_contact:checked+label {
   color: #0af;
   border: 1px solid #abc;
   border-top: 2px solid #0af;
@@ -64,28 +60,14 @@ section {
   background-color: white;
 }
 
-#wwme_wh_help:checked ~ #wwme_wh_help_content,
-#wwme_wh_whyus:checked ~ #wwme_wh_whyus_content,
-#wwme_wh_faq:checked ~ #wwme_wh_faq_content,
-#wwme_wh_contact:checked ~ #wwme_wh_contact_content {
+#wwme_wh_help:checked~#wwme_wh_help_content,
+#wwme_wh_whyus:checked~#wwme_wh_whyus_content,
+#wwme_wh_faq:checked~#wwme_wh_faq_content,
+#wwme_wh_contact:checked~#wwme_wh_contact_content {
   display: block;
 }
 
-@media screen and (max-width: 800px) {
-  label {
-    font-size: 0;
-  }
-  label:before {
-    margin: 0;
-    font-size: 18px;
-  }
-}
 
-@media screen and (max-width: 500px) {
-  label {
-    padding: 15px;
-  }
-}
 
 
 
@@ -98,11 +80,13 @@ section {
   transform: translate(-50%, -50%);
   width: 75%;*/
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
- 
+
 }
+
 .wwme_wh_accordion input[name='wwme_wh_panel'] {
   display: none;
 }
+
 .wwme_wh_accordion label {
   position: relative;
   display: block;
@@ -119,11 +103,14 @@ section {
   transition: all 0.4s cubic-bezier(0.865, 0.14, 0.095, 0.87);
   font-weight: bold;
 }
-#wwme_wh_help_content > div > div:nth-child(1) > label
-{ background: #FED4D5;}
 
-#wwme_wh_help_content > div > div:nth-child(9) > label
-{ background: #D4FFE9;}
+#wwme_wh_help_content>div>div:nth-child(1)>label {
+  background: #FED4D5;
+}
+
+#wwme_wh_help_content>div>div:nth-child(9)>label {
+  background: #D4FFE9;
+}
 
 .wwme_wh_accordion label:after {
   content: '+';
@@ -138,17 +125,21 @@ section {
   box-shadow: inset 0 1px 6px rgba(0, 0, 0, 0.5), 0 1px 0 #fff;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.75);
 }
+
 .wwme_wh_accordion label:hover {
   color: #000000;
 }
-.wwme_wh_accordion input:checked + label {
+
+.wwme_wh_accordion input:checked+label {
   color: #000000;
 }
-.wwme_wh_accordion input:checked + label:after {
+
+.wwme_wh_accordion input:checked+label:after {
   content: '-';
   /* adjsut line-height to vertically center icon */
   line-height: .8em;
 }
+
 .wwme_wh_accordion .accordion__content {
   overflow: hidden;
   height: 0px;
@@ -160,12 +151,15 @@ section {
   color: #eee;
   transition: height 0.4s cubic-bezier(0.865, 0.14, 0.095, 0.87);
 }
+
 .wwme_wh_accordion .accordion__content:not(:last-of-type) {
   box-shadow: inset 0 -2px 2px rgba(0, 0, 0, 0.25), inset 4px 0 0 0 #27ae60, inset 0 3px 6px rgba(0, 0, 0, 0.75);
 }
+
 .wwme_wh_accordion .accordion__content .accordion__header {
   padding: 1em 0;
 }
+
 .wwme_wh_accordion .accordion__content .accordion__body {
   font-size: .825em;
   line-height: 1.4em;
@@ -174,25 +168,110 @@ section {
 /* 
 * Size Variations
 */
-input[name='wwme_wh_panel']:checked ~ .accordion__content.accordion__content--small {
+input[name='wwme_wh_panel']:checked~.accordion__content.accordion__content--small {
   height: auto;
   padding-bottom: 20px;
 }
 
-input[name='wwme_wh_panel']:checked ~ .accordion__content.accordion__content--med {
+input[name='wwme_wh_panel']:checked~.accordion__content.accordion__content--med {
   height: auto;
   padding-bottom: 20px;
 }
 
-input[name='wwme_wh_panel']:checked ~ .accordion__content.accordion__content--large {
+input[name='wwme_wh_panel']:checked~.accordion__content.accordion__content--large {
   height: auto;
   padding-bottom: 20px;
 }
 
-#wwme_wh_news_info{margin: 10px 0px;}
+#wwme_wh_news_info {
+  margin: 10px 0px;
+}
 
-#wwme_wh_help_content, #wwme_wh_whyus_content, #wwme_wh_faq_content, #wwme_wh_contact_content {background-color: white; padding: 10px;    margin-right: 10px;}
+#wwme_wh_sent_info {
+  border: 3px dashed green;
+  padding: 5px;
+  margin: 10px 10px 10px 0;
+  background-color: white;
+  zoom: 1.2;
+}
 
-#wwme_wh_help_content > div > div > div > h2{color:white;}
+#wwme_wh_help_content,
+#wwme_wh_whyus_content,
+#wwme_wh_faq_content,
+#wwme_wh_contact_content {
+  background-color: white;
+  padding: 10px;
+  margin-right: 10px;
+}
 
-#wwme_wh_help_formmain{background-color: grey;}
+#wwme_wh_help_content>div>div>div>h2 {
+  color: white;
+}
+
+.wwme_wh_help_formmain {
+  border: 2px dashed white;
+  padding: 10px;
+}
+
+.wwme_wh_help_formmain>input[type=text],
+.wwme_wh_help_formmain>textarea {
+  width: 100%;
+  margin: 3px 0;
+}
+
+.wwme_wh_help_formmain>textarea {
+  height: 150px;
+}
+
+.wwme_wh_help_formmain>.button-primary {
+  zoom: 1.3;
+  font-weight: bold;
+}
+
+.wwme_wh_help_formmain>#wwme_wh_name,
+.wwme_wh_help_formmain>#wwme_wh_email {
+  width: 49.5%;
+  float: left;
+  margin: 3px 1% 3px 0;
+}
+
+.wwme_wh_help_formmain>#wwme_wh_email {
+  margin: 3px 0;
+}
+
+#wpfooter {
+  position: fixed;
+  z-index: 1
+}
+
+
+
+
+@media screen and (max-width: 800px) {
+  label {
+    font-size: 10px;
+  }
+
+  label:before {
+    margin: 0;
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+
+  .wwme_wh_help_formmain>#wwme_wh_name,
+  .wwme_wh_help_formmain>#wwme_wh_email {
+    width: 100%;
+    float: none;
+    margin: 3px 0;
+  }
+}
+
+
+@media screen and (max-width: 500px) {
+  label {
+    padding: 15px;
+  }
+
+}

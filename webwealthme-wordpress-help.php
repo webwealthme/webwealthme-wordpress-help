@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       WebWealth.me Wordpress Help
  * Description:       Get Expert WordPress Help (Advice, Custom Tutorials or Done For You) Directly From WP Admin
- * Version:           2018.12.04
+ * Version:           2018.12.06
  * Author:            Mike Mind
  * Author URI:        https://webwealth.me
  * Text Domain:       webwealth.me
@@ -33,14 +33,6 @@ class wwme_wh_SettingsPage
 
         add_menu_page('WebWealth.me WordPress Help', 'WebWealth.me WordPress Help', 'manage_options', 'wwme_wh', array($this, 'create_admin_page'), '../wp-content/plugins/webwealthme-wordpress-help/logo.png');
 
-        /* // This page will be under "Settings"
-    add_options_page(
-    'WebWealth.me Wordpress Help',
-    'WebWealth.me Wordpress Help',
-    'manage_options',
-    'wwme_wh',
-    array($this, 'create_admin_page')
-    );*/
     }
 
     /**
@@ -57,7 +49,7 @@ class wwme_wh_SettingsPage
         <div id="wwme_wh_maindiv">
 <div id="wwme_wh_news_info">Loved our service? <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FAUCSBEY7S2YQ" target="_blank">Leave a tip</a> ☺</div>
 
-
+<?php wwme_wh_sendemail();?>
 
 <input id="wwme_wh_help" type="radio" name="tabs" checked>
 <label for="wwme_wh_help">HELP</label>
@@ -85,7 +77,8 @@ class wwme_wh_SettingsPage
   <div class="accordion__content accordion__content--small">
   <h2>FREE CONSULTATION ► Get FREE WordPress related advice and recommendations from us!</h2>
 <p><b>What do you try to accomplish?</b></p>
-<form action="">
+<form name="wwme_wh_form" method="post" action="#" enctype="multipart/form-data">
+<div class='wwme_wh_help_formmain'>
 <?php wwme_wh_help_form("GET MY FREE CONSULTATION");?>
   </div>
 </div>
@@ -96,9 +89,10 @@ class wwme_wh_SettingsPage
   <label for="wwme_wh_panel_step-by-step">STEP BY STEP INSTRUCTIONS</label>
   <div class="accordion__content accordion__content--small">
   <h2>STEP BY STEP INSTRUCTIONS ► Get a detailed step by step instruction manual or video for your WP needs!</h2>
-  <p><b>What do you try to accomplish?</b></p>
-  <form action="">
-checkboxes Manual (TEXT/IMAGES)  VIDEO
+  <p><b>What do you want to achieve?</b></p>
+  <form name="wwme_wh_form" method="post" action="#" enctype="multipart/form-data">
+  <div class='wwme_wh_help_formmain'>
+  FORMAT: <input type='checkbox' name='manual' value='manual' checked> Manual (TEXT/IMAGES) and/or &nbsp; <input type='checkbox' name='video' value='video'> VIDEO
 <?php wwme_wh_help_form("GET MY STEP BY STEP INSTRUCTIONS QUOTE");?>
   </div>
 </div>
@@ -126,7 +120,8 @@ checkboxes Manual (TEXT/IMAGES)  VIDEO
 ⚀ Own created logo, stock images and dummy text will be used if you don’t have them yet.<br>
 ⚁ No gambling, adult or illegal sites.</p>
 
-<form action="">
+<form name="wwme_wh_form" method="post" action="#" enctype="multipart/form-data">
+<div class='wwme_wh_help_formmain'>
 <?php wwme_wh_help_form("GET MY NEW WP SITE QUOTE");?>
   </div>
 </div>
@@ -149,7 +144,8 @@ checkboxes Manual (TEXT/IMAGES)  VIDEO
 ✓ Minification<br>
 ✓ Before & After Report</p>
 
-<form action="">
+<form name="wwme_wh_form" method="post" action="#" enctype="multipart/form-data">
+<div class='wwme_wh_help_formmain'>
 <?php wwme_wh_help_form("GET MY SPEED OPTIMIZATION QUOTE");?>
   </div>
 </div>
@@ -180,7 +176,8 @@ checkboxes Manual (TEXT/IMAGES)  VIDEO
 ✓ Any Coding Bugs (PHP, JS)<br>
 ✓ Any Plugin Issues</p>
 
-<form action="">
+<form name="wwme_wh_form" method="post" action="#" enctype="multipart/form-data">
+<div class='wwme_wh_help_formmain'>
 <?php wwme_wh_help_form("GET MY ERROR FIXES QUOTE");?>
   </div>
 </div>
@@ -201,7 +198,8 @@ checkboxes Manual (TEXT/IMAGES)  VIDEO
 ✓ Make site Google friendly<br>
 ✓ Regain Google ranking</p>
 
-<form action="">
+<form name="wwme_wh_form" method="post" action="#" enctype="multipart/form-data">
+<div class='wwme_wh_help_formmain'>
 <?php wwme_wh_help_form("GET MY SECURITY QUOTE");?>
   </div>
 </div>
@@ -223,7 +221,8 @@ checkboxes Manual (TEXT/IMAGES)  VIDEO
 ✓ No Size Restrictions<br>
 ✓ Minimum information required</p>
 
-<form action="">
+<form name="wwme_wh_form" method="post" action="#" enctype="multipart/form-data">
+<div class='wwme_wh_help_formmain'>
 <?php wwme_wh_help_form("GET MY WP TRANSFER QUOTE");?>
   </div>
 </div>
@@ -236,23 +235,25 @@ checkboxes Manual (TEXT/IMAGES)  VIDEO
   <h2>OTHER - DO IT FOR ME ► Anything you need to get done just let us know!</h2>
 <p><b>Choose the one that fits best:</b></p>
 
-<form action="">
-( ) Current Site Edits
-( ) New Functionality
-( ) PSD to WP Theme
-( ) Instal SSL (HTTP to HTTPS)
-( ) Fix WordPress Errors
-( ) Fix WordPress Theme Issues
-( ) Fix Any Coding Bugs
-( ) Fix Any Plugin Issue
-( ) Create or Edit Website
-( ) Remove Hack & Harden Security
-( ) Convert Websites to WordPress
-( ) Move WP to Other Host
-( ) Make your Site Faster
-( ) Update WordPress, Theme & Plugins
-( ) Backup Your Site
-( ) Any other Custom Work
+<form name="wwme_wh_form" method="post" action="#" enctype="multipart/form-data">
+<div class='wwme_wh_help_formmain'>
+<p><b>What service do you need?</b></p>
+<input type='checkbox' name='currentsiteedits' value='currentsiteedits'> Current Site Edits<br>
+<input type='checkbox' name='newfunctionality' value='newfunctionality'> New Functionality<br>
+<input type='checkbox' name='psdtowptheme' value='psdtowptheme'> PSD to WP Theme<br>
+<input type='checkbox' name='instalssl' value='instalssl'> Instal SSL (HTTP to HTTPS)<br>
+<input type='checkbox' name='fixwperrors' value='fixwperrors'> Fix WordPress Errors<br>
+<input type='checkbox' name='fixwptheme' value='fixwptheme'> Fix WordPress Theme Issues<br>
+<input type='checkbox' name='fixcode' value='fixcode'> Fix Any Coding Bugs<br>
+<input type='checkbox' name='fixplugin' value='fixplugin'> Fix Any Plugin Issue<br>
+<input type='checkbox' name='createeditwebsite' value='createeditwebsite'> Create or Edit Website<br>
+<input type='checkbox' name='removehackharden' value='removehackharden'> Remove Hack & Harden Security<br>
+<input type='checkbox' name='converttowp' value='converttowp'> Convert Websites to WordPress<br>
+<input type='checkbox' name='transferwp' value='transferwp'> Move WP to Other Host<br>
+<input type='checkbox' name='speed' value='speed'> Make your Site Faster<br>
+<input type='checkbox' name='updatewp' value='updatewp'> Update WordPress, Theme & Plugins<br>
+<input type='checkbox' name='backupwp' value='backupwp'> Backup Your Site<br>
+<input type='checkbox' name='customwork' value='customwork'> Any other Custom Work
 
 <?php wwme_wh_help_form("GET MY DO IT FOR ME QUOTE");?>
   </div>
@@ -275,9 +276,9 @@ checkboxes Manual (TEXT/IMAGES)  VIDEO
 <br>
 <b>IMPORTANT:</b> Website link, WP ADMIN + CPANEL access is needed, so please provide before ordering</p>
 
-<form action="">
-<?php wwme_wh_help_form("Get My Free Consultation");?>
-<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L7G7FDS3BU2VN" target="_blank">SUBSCRIBE FOR JUST $99 $59</a>
+<form name="wwme_wh_form" method="post" action="#" enctype="multipart/form-data">
+<div class='wwme_wh_help_formmain'>
+<?php wwme_wh_help_form("Get My Ongoing Maintenance");?>
   </div>
 </div>
 
@@ -292,7 +293,7 @@ checkboxes Manual (TEXT/IMAGES)  VIDEO
 <p>☆ Reliable & High Rated WordPress Designers/Developers<br>
 ☆ Great Communication, Fast Response & Work Delivery<br>
 ☆ Competitive Prices<br>
-☆ 10+ Years Wordpress Experience<br>
+☆ 10+ Years WordPress Experience<br>
 ☆ Over 3000 Happy Customers Served<br>
 <br>
 ❮❯ WP, HTML, CSS, PHP, JavaScript Experts<br>
@@ -304,11 +305,11 @@ Bonus: Free Expert Tips to Improve Website on any FREE or Paid service.<br>
 
 <section id="wwme_wh_faq_content">
 <p><b>Q: What do you offer?</b><br>
-<b>A:</b> Custom Work on the following Wordpress topics: Errors, Theme Issues, Coding Bugs, Plugin Issue, Create or Edit Website, Remove Hack & Harden Security, Convert Websites to WordPress, Move WP to Other Host, Make your Site Faster, Update WP, Theme & Plugins, Backup and a lot more.</p>
+<b>A:</b> Custom Work on the following WordPress topics: Errors, Theme Issues, Coding Bugs, Plugin Issue, Create or Edit Website, Remove Hack & Harden Security, Convert Websites to WordPress, Move WP to Other Host, Make your Site Faster, Update WP, Theme & Plugins, Backup and a lot more.</p>
 
 <p><b>Q: How does it work?</b><br>
-<b>A:</b> First, Thank you for choosing our services :) The process is very simple:<br>
-1. You: Send a request to us with your Wordpress needs<br>
+<b>A:</b> First, thank you for choosing our services :) The process is very simple:<br>
+1. You: Send a request to us with your WordPress needs<br>
 2. Us: Communicate how and by when will the fixes/changes be done and the quote (if paid service)<br>
 3. You: Agree (pay first quote % if applicable) and send us the required logins to get started<br>
 4. Us: Finish the work + send report<br>
@@ -320,7 +321,7 @@ Note: Additional information will be requested if needed, to provide you the bes
 <b>A:</b> After the project is successfully done and payment was made, we offer free help and revisions for that specific task/project (within reason) for 7 days. After 1 week, other help or revisions must be paid for.</p>
 
 <p><b>Q: How are payments made? </b><br>
-<b>A:</b> Securely with Paypal.</p>
+<b>A:</b> Securely with PayPal.</p>
 
 <p><b>Q: How are refunds handled?</b><br>
 <b>A:</b> 7 Days money back Guarantee. If for any reason you are not satisfied with the service provided, you get your money back!</p>
@@ -332,9 +333,10 @@ Note: Additional information will be requested if needed, to provide you the bes
 
 <section id="wwme_wh_contact_content">
 
-Contact WebWealth.me for any feedback/request/question/etc at admin@webwealth.me or using the form below:
-    <?php wwme_wh_help_form("Contact");?>
-
+Contact WebWealth.me for any feedback/request/question/etc at admin@webwealth.me or using the form below:<br>
+<form name="wwme_wh_form" method="post" action="#" enctype="multipart/form-data">
+<div class='wwme_wh_help_formmain'>
+    <?php wwme_wh_help_form("Send Message");?>
 
 
 </section>
@@ -345,13 +347,6 @@ Contact WebWealth.me for any feedback/request/question/etc at admin@webwealth.me
         </div>
 
         <?php
-
-        //wwme_wh_outputjs();
-
-        if (isset($_POST['action'])) {
-
-            // add thank you message here
-        }
 
     }
 
@@ -393,3 +388,12 @@ function wwme_wh_admin_toolbar_button($wp_admin_bar)
 }
 
 add_action('admin_bar_menu', 'wwme_wh_admin_toolbar_button', 31);
+
+// define the wp_mail_failed callback
+function action_wp_mail_failed($wp_error)
+{
+    return error_log(print_r($wp_error, true));
+}
+
+// add the action
+add_action('wp_mail_failed', 'action_wp_mail_failed', 10, 1);
