@@ -241,7 +241,7 @@ class wwme_wh_SettingsPage
 <input type='checkbox' name='currentsiteedits' value='currentsiteedits'> Current Site Edits<br>
 <input type='checkbox' name='newfunctionality' value='newfunctionality'> New Functionality<br>
 <input type='checkbox' name='psdtowptheme' value='psdtowptheme'> PSD to WP Theme<br>
-<input type='checkbox' name='instalssl' value='instalssl'> Instal SSL (HTTP to HTTPS)<br>
+<input type='checkbox' name='instalssl' value='instalssl'> Install SSL (HTTP to HTTPS)<br>
 <input type='checkbox' name='fixwperrors' value='fixwperrors'> Fix WordPress Errors<br>
 <input type='checkbox' name='fixwptheme' value='fixwptheme'> Fix WordPress Theme Issues<br>
 <input type='checkbox' name='fixcode' value='fixcode'> Fix Any Coding Bugs<br>
