@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       WebWealth.me Wordpress Help
+ * Plugin Name:       WebWealth.me WordPress Help
  * Description:       Get Expert WordPress Help (Advice, Custom Tutorials or Done For You) Directly From WP Admin
  * Version:           2018.12.08
  * Author:            Mike Mind
