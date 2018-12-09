@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       WebWealth.me Wordpress Help
  * Description:       Get Expert WordPress Help (Advice, Custom Tutorials or Done For You) Directly From WP Admin
- * Version:           2018.12.06
+ * Version:           2018.12.08
  * Author:            Mike Mind
  * Author URI:        https://webwealth.me
  * Text Domain:       webwealth.me
@@ -340,7 +340,8 @@ Contact WebWealth.me for any feedback/request/question/etc at admin@webwealth.me
 
 
 </section>
-
+<a alt="WebWealth.me" href="https://WebWealth.me" target="_blank"><img style="max-height:100px;float:left;margin:10px" src="../wp-content/plugins/webwealthme-wordpress-help/WebWealth.me.png"></a>
+<a alt="MikeMind.me" href="https://MikeMind.me" target="_blank"><img style="max-height:100px;float:left;margin:10px" src="../wp-content/plugins/webwealthme-wordpress-help/MikeMind.me.png"></a>
 
 
 
