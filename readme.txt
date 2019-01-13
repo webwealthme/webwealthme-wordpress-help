@@ -1,4 +1,4 @@
-=== WebWealth.me WordPress Help ===
+=== WebWealth.me WP Help ===
 Contributors: mikemindme
 Tags: wordpress help, wordpress support, wordpress experts
 Tested up to: 5
@@ -7,9 +7,12 @@ Stable tag: trunk
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.txt
 
-Get Expert WordPress Help (Advice, Custom Tutorials or Done For You) Directly From WP Admin
+Handy Toolbox & Get Expert WordPress Help (Advice, Custom Tutorials or Done For You) Directly From WP Admin
 
 == Description ==
+
+=Insert Header and Footer Code=
+
 =We currently offer the following services:=
 
 =FREE CONSULTATION -> Get FREE WordPress related advice and recommendations from us!=
@@ -120,6 +123,10 @@ Included:
 * Small WP Requests
 
 
+=PRIVACY DISCLOSURE=
+
+When you submit a form to us, personal data (eg. names & emails collected using this plugin) will be send to my Company, Web Wealth, a 3rd party service provider.
+Our privacy policy is available here: https://webwealth.me/cookies-privacy-policy/
 
 == Installation ==
 Install like any other plugin :)

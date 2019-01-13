@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name:       WebWealth.me WordPress Help
- * Description:       Get Expert WordPress Help (Advice, Custom Tutorials or Done For You) Directly From WP Admin
- * Version:           2018.12.08
+ * Plugin Name:       WebWealth.me WP Help
+ * Description:       Handy Toolbox & Get Expert WordPress Help (Advice, Custom Tutorials or Done For You) Directly From WP Admin
+ * Version:           2019.01.11
  * Author:            Mike Mind
  * Author URI:        https://webwealth.me
  * Text Domain:       webwealth.me
@@ -22,8 +22,13 @@ class wwme_wh_SettingsPage
     public function __construct()
     {
         add_action('admin_menu', array($this, 'add_plugin_page'));
+
+        register_setting( 'wwme_wh_insert-headers-and-footers', 'wwme_wh_insert_header', 'trim' );
+        register_setting( 'wwme_wh_insert-headers-and-footers', 'wwme_wh_insert_footer', 'trim' );
+
         //add_action('admin_init', array($this, 'page_init'));
     }
+
 
     /**
      * Add options page
@@ -31,7 +36,7 @@ class wwme_wh_SettingsPage
     public function add_plugin_page()
     {
 
-        add_menu_page('WebWealth.me WordPress Help', 'WebWealth.me WordPress Help', 'manage_options', 'wwme_wh', array($this, 'create_admin_page'), '../wp-content/plugins/webwealthme-wordpress-help/logo.png');
+        add_menu_page('WebWealth.me WordPress Help', 'WebWealth.me WordPress Help', 'manage_options', 'wwme_wh', array($this, 'create_admin_page'), plugin_dir_url( __FILE__ ).'/logo.png');        
 
     }
 
@@ -49,10 +54,11 @@ class wwme_wh_SettingsPage
         <div id="wwme_wh_maindiv">
 <div id="wwme_wh_news_info">Loved our service? <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FAUCSBEY7S2YQ" target="_blank">Leave a tip</a> ☺</div>
 
+
 <?php wwme_wh_sendemail();?>
 
 <input id="wwme_wh_help" type="radio" name="tabs" checked>
-<label for="wwme_wh_help">HELP</label>
+<label for="wwme_wh_help">MAIN</label>
 
 <input id="wwme_wh_whyus" type="radio" name="tabs">
 <label for="wwme_wh_whyus">WHY US?</label>
@@ -64,6 +70,38 @@ class wwme_wh_SettingsPage
 <label for="wwme_wh_contact">CONTACT</label>
 
 <section id="wwme_wh_help_content">
+<h1>Handy Toolbox:</h1>
+<div class="wwme_wh_accordion">
+
+<!-- Panel 1 -->
+<div>
+  <input type="radio" name="wwme_wh_panel" id="wwme_wh_panel_add_header_footer_code">
+  <label for="wwme_wh_panel_add_header_footer_code">Add code to Header and Footer:</label>
+  <div class="accordion__content accordion__content--small">
+  <?php if ( current_user_can( 'administrator' ) ) { ?>
+  <form name="dofollow" action="options.php" method="post">
+    <?php settings_fields( 'wwme_wh_insert-headers-and-footers' ); ?>
+    <br>
+    <div class="wwme_wh_textareawlabel">
+    <span style="display: block;" class="wwme_wh_-labels" >Scripts in header:</span>
+    <textarea rows="5" cols="57" id="insert_header" name="wwme_wh_insert_header"><?php echo esc_html( wwme_wh_sanitize(get_option( 'wwme_wh_insert_header' )) ); ?></textarea>
+    </div>
+    <br>
+    <div class="wwme_wh_textareawlabel">
+    <span style="display: block;" class="wwme_wh_-labels footerlabel" >Scripts in footer:</span>
+    <textarea rows="5" cols="57" id="wwme_wh__insert_footer" name="wwme_wh_insert_footer"><?php echo esc_html( wwme_wh_sanitize(get_option( 'wwme_wh_insert_footer' )) ); ?></textarea>
+    </div>    
+    
+    <input class="button-primary" type="submit" name="Submit" value="Save settings" /> 
+    
+    
+    </form>
+  <?php } ?>
+  </div>
+</div>
+    </div>
+
+<hr>
 <h1>We currently offer the following services:</h1>
 <p><i><b>Note 1:</b> For best experience please describe your request with as much detail as possible and also attach project files if you have, such as documents, pdfs, images, screenshots, etc (please zip archive them to attach all).</br>
 <b>Note 2:</b> To get a faster quote and speed up work delivery please send temporary wp admin access (some projects require temporary ftp access as well, so it would be great if this is provided as well).</i></p>
@@ -340,8 +378,8 @@ Contact WebWealth.me for any feedback/request/question/etc at admin@webwealth.me
 
 
 </section>
-<a alt="WebWealth.me" href="https://WebWealth.me" target="_blank"><img style="max-height:100px;float:left;margin:10px" src="../wp-content/plugins/webwealthme-wordpress-help/WebWealth.me.png"></a>
-<a alt="MikeMind.me" href="https://MikeMind.me" target="_blank"><img style="max-height:100px;float:left;margin:10px" src="../wp-content/plugins/webwealthme-wordpress-help/MikeMind.me.png"></a>
+<a alt="WebWealth.me" href="https://WebWealth.me" target="_blank"><img style="max-height:100px;float:left;margin:10px" src="<?php echo(content_url()) ?>/plugins/webwealthme-wordpress-help/WebWealth.me.png"></a>
+<a alt="MikeMind.me" href="https://MikeMind.me" target="_blank"><img style="max-height:100px;float:left;margin:10px" src="<?php echo(content_url()) ?>/plugins/webwealthme-wordpress-help/MikeMind.me.png"></a>
 
 
 
@@ -366,35 +404,51 @@ function wwme_wh_admin_toolbar_button($wp_admin_bar)
         'href' => '/wp-admin/admin.php?page=wwme_wh',
         'meta' => array(
             'class' => 'custom-button-class',
+            'title' => 'Visit WebWealth.me',
         ),
     );
     $wp_admin_bar->add_node($args);
-    echo "
-<style>
-#wp-admin-bar-wwme_wh_admin_toolbar_button {background-color:#F26722!important;}
-#wp-admin-bar-wwme_wh_admin_toolbar_button > a {font-weight: bold!important;font-size:150%!important}
-#wp-admin-bar-wwme_wh_admin_toolbar_button > a::before {
-    content: url(../wp-content/plugins/webwealthme-wordpress-help/logo.png);
-    transform: scale(.8);
-    height: 20px;
-    width: 20px;
-    margin-top: -3px;
-    margin-left: -5px;
-}
-
-#toplevel_page_wwme_wh {background-color:#F26722!important;}
-</style>
-";
+    
+    wp_enqueue_style( 'wwme_wh_admin_style', plugins_url( 'wwme_wh_admin_style.css', __FILE__ ),false,null);   
 
 }
 
 add_action('admin_bar_menu', 'wwme_wh_admin_toolbar_button', 31);
 
+
 // define the wp_mail_failed callback
-function action_wp_mail_failed($wp_error)
+function wwme_wh_action_wp_mail_failed($wp_error)
 {
     return error_log(print_r($wp_error, true));
 }
 
 // add the action
-add_action('wp_mail_failed', 'action_wp_mail_failed', 10, 1);
+add_action('wp_mail_failed', 'wwme_wh_action_wp_mail_failed', 10, 1);
+
+
+//wwme header and footer code
+add_action( 'wp_head', 'wwme_wh_wp_head');
+add_action( 'wp_footer', 'wwme_wh_wp_footer');
+
+function wwme_wh_wp_head() {
+  $meta = esc_html(wwme_wh_sanitize(get_option( 'wwme_wh_insert_header', '' )));
+  if ( $meta != '' ) {
+      echo $meta, "\n";
+  }
+
+}
+
+
+function wwme_wh_wp_footer() {
+  if ( !is_admin() && !is_feed() && !is_robots() && !is_trackback() ) {
+      $text = esc_html(wwme_wh_sanitize(get_option( 'wwme_wh_insert_footer', '' )));
+      
+      $text = convert_smilies( $text );
+      $text = do_shortcode( $text );
+      
+      if ( $text != '' ) {
+          echo $text, "\n";
+      }
+  }
+
+}
