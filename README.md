@@ -1,13 +1,15 @@
 # webwealthme-wordpress-help
 Get Expert WordPress Help (Advice, Custom Tutorials or Done For You) Directly From WP Admin
 
-#We currently offer the following services:
+![WebWealthme Wordpress Help](https://github.com/webwealthme/webwealthme-wordpress-help/blob/master/assets/screenshot-2.png)
 
-##FREE CONSULTATION -> Get FREE WordPress related advice and recommendations from us!
+# We currently offer the following services:
 
-##STEP BY STEP INSTRUCTIONS -> Get a detailed step by step instruction manual or video for your WP needs!
+## FREE CONSULTATION -> Get FREE WordPress related advice and recommendations from us!
 
-##NEW WP SITE -> Get A Professional Wordpress Site that converts users into leads/buyers!
+## STEP BY STEP INSTRUCTIONS -> Get a detailed step by step instruction manual or video for your WP needs!
+
+## NEW WP SITE -> Get A Professional Wordpress Site that converts users into leads/buyers!
 What we offer?=
 * Mobile Responsive Themes
 * Forms (Contact, Quote, Schedule, Request, Order...)
@@ -25,7 +27,7 @@ Notes:
 * Own created logo, stock images and dummy text will be used if you don’t have them yet.
 * No gambling, adult or illegal sites.
 
-##SPEED OPTIMIZATION -> Improve Speed and Performance for better user experience and increased Google rankings!
+## SPEED OPTIMIZATION -> Improve Speed and Performance for better user experience and increased Google rankings!
 Included:
 * Faster Loading Time
 * Image Optimization
@@ -37,7 +39,7 @@ Included:
 * Minification
 * Before & After Report
 
-##ERROR FIXES -> Fix Fast Any WordPress Error, Issue Or Problem!
+## ERROR FIXES -> Fix Fast Any WordPress Error, Issue Or Problem!
 Fix Specific Errors:
 * Warning: Cannot modify header information – headers already sent by
 * WordPress White Screen of Death / Fatal error
@@ -58,7 +60,7 @@ Fix General Errors:
 * Any Coding Bugs (PHP, JS)
 * Any Plugin Issues
 
-##SECURITY -> Remove any WordPress Malware, Hack, Virus or Malicious Code & Harden Security!
+## SECURITY -> Remove any WordPress Malware, Hack, Virus or Malicious Code & Harden Security!
 What we offer?
 * Wordpress Malware Cleanup
 * Backdoor, phishing scripts, SEO spam removal
@@ -69,7 +71,7 @@ What we offer?
 * Make site Google friendly
 * Regain Google ranking
 
-##TRANSFER -> Move Wordpress Site To New Host Or Domain!
+## TRANSFER -> Move Wordpress Site To New Host Or Domain!
 What we offer?
 * Move from subdomain to root
 * Move from root to subdomain
@@ -81,7 +83,7 @@ Notes:
 * No Size Restrictions
 * Minimum information required
 
-##OTHER -> DO IT FOR ME ? Anything you need to get done just let us know!
+## OTHER -> DO IT FOR ME ? Anything you need to get done just let us know!
 Choose the one that fits best:
 *  Current Site Edits
  *  New Functionality
@@ -100,7 +102,7 @@ Choose the one that fits best:
  *  Backup Your Site
  *  Any other Custom Work
 
-##ONGOING MAINTENANCE -> Keep your site running smoothly and up to date!
+## ONGOING MAINTENANCE -> Keep your site running smoothly and up to date!
 Included:
 * WP Core Updates
 * Plugins and Theme Updates
